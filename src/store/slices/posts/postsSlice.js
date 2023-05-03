@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPosts } from "../../thunks/posts/posts";
+import { getPost, getPosts } from "../../thunks/posts/posts";
 
 /**
  * post has
@@ -18,6 +18,7 @@ import { getPosts } from "../../thunks/posts/posts";
 
 const initialState = {
   posts: [], // post[]
+  post: undefined, // Post | undefined
   loading: false,
   total: 0,
   skip: 0,
@@ -43,6 +44,13 @@ const postsSlice = createSlice({
       state.total = action.payload?.total;
       state.skip = action.payload?.skip;
       state.limit = action.payload?.limit;
+    });
+    builder.addCase(getPost.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(getPost.fulfilled, (state, action) => {
+      state.loading = false;
+      state.post = action.payload?.post;
     });
   },
 });

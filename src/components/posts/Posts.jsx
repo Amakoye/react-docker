@@ -2,14 +2,12 @@ import { Card, Pagination, Spin } from "antd";
 import Paragraph from "antd/lib/typography/Paragraph";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateCount } from "../../store/slices/posts/postsSlice";
 import { getPosts } from "../../store/thunks/posts/posts";
 
 const Posts = () => {
   const dispatch = useDispatch();
 
   const { posts, loading, total } = useSelector((store) => store.posts);
-  const { user } = useSelector((store) => store.auth);
 
   useEffect(() => {
     dispatch(getPosts());
@@ -24,8 +22,6 @@ const Posts = () => {
         alignItems: "center",
       }}
     >
-      <h3>{user}</h3>
-      <button onClick={() => dispatch(updateCount())}> click me</button>
       {loading && <Spin />}
       <div
         style={{

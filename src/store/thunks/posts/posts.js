@@ -13,3 +13,10 @@ export const getPosts = createAsyncThunk("Posts/getPosts", async () => {
     return data;
   } catch (error) {}
 });
+
+export const getPost = createAsyncThunk("Posts/getPost", async (id) => {
+  try {
+    const { data } = await api.get(`/posts/${id}`);
+    return data;
+  } catch (error) {}
+});
