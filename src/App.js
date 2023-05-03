@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { Button } from "antd";
+import Title from "antd/lib/typography/Title";
+import { cloneElement, useRef } from "react";
+import WithLayout from "./components/layout/WithLayout";
+import PostModal from "./components/posts/PostModal";
+import Posts from "./components/posts/Posts";
 
 function App() {
+  const ref = useRef(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WithLayout pageTitle={"Dashboard"}>
+      <Title
+        style={{
+          fontSize: "1.2rem",
+        }}
+        level={4}
+      >
+        Posts
+      </Title>
+      <Button onClick={() => ref.current?.open()}>Add</Button>
+      <Posts />
+      {cloneElement(<PostModal ref={ref} />)}
+    </WithLayout>
   );
 }
 
