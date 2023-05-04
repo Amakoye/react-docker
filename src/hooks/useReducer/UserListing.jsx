@@ -1,6 +1,7 @@
-import { List } from "antd";
+import { Button, List } from "antd";
+import Text from "antd/lib/typography/Text";
 
-const UserListing = ({ users }) => {
+const UserListing = ({ users, onDelete }) => {
   return (
     <>
       <List
@@ -10,7 +11,16 @@ const UserListing = ({ users }) => {
         bordered
         dataSource={users}
         renderItem={({ firstname, lastname, id }) => (
-          <List.Item>{`${firstname} ${lastname}`}</List.Item>
+          <List.Item>
+            <Text>{`${firstname} ${lastname}`}</Text>
+            <Button
+              type="danger"
+              htmlType="button"
+              onClick={() => onDelete(id)}
+            >
+              Delete
+            </Button>
+          </List.Item>
         )}
       />
     </>

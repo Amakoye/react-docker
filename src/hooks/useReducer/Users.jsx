@@ -63,7 +63,7 @@ const Users = () => {
     <div style={{ border: "1px solid green", padding: "1em", margin: "1em" }}>
       <Title>useReducer example</Title>
       <AddUserForm handleAddUser={addNewUser} />
-      <UserListing users={users} />
+      <UserListing users={users} onDelete={deleteUser} />
     </div>
   );
 };
