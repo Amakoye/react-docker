@@ -3,7 +3,8 @@ import Title from "antd/lib/typography/Title";
 import { cloneElement, useRef } from "react";
 import WithLayout from "./components/layout/WithLayout";
 import PostModal from "./components/posts/PostModal";
-import Context from "./hooks/useContext/Context";
+import Memo from "./hooks/useMemo/Memo";
+import Memo2 from "./hooks/useMemo/Memo2";
 
 function App() {
   // const [count, setCounter] = useState(0);
@@ -31,9 +32,15 @@ function App() {
       {/* <Users /> */}
 
       {/* useContext */}
-      <Context />
+      {/*   <Context /> */}
 
-      {/*  <Posts /> */}
+      {/* useMemo */}
+      <div style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
+        <Memo />
+        <Memo2 />
+      </div>
+
+      {/* <Posts /> */}
       {cloneElement(<PostModal ref={ref} />)}
     </WithLayout>
   );

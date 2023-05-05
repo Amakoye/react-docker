@@ -10,6 +10,7 @@ const Context = () => {
           flexDirection: "column",
           gap: "1em",
           width: 500,
+          margin: "1em",
         }}
       >
         <ChildComponent />
