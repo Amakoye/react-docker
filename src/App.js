@@ -3,9 +3,7 @@ import Title from "antd/lib/typography/Title";
 import { cloneElement, useRef } from "react";
 import WithLayout from "./components/layout/WithLayout";
 import PostModal from "./components/posts/PostModal";
-import CallBack1 from "./hooks/useCallback/demo-1/CallBack1";
-import CallBack2 from "./hooks/useCallback/demo-2/CallBack2";
-import Users from "./hooks/useReducer/Users";
+import Context from "./hooks/useContext/Context";
 
 function App() {
   // const [count, setCounter] = useState(0);
@@ -24,13 +22,16 @@ function App() {
       <Button onClick={() => ref.current?.open()}>Add</Button>
 
       {/* useCallback */}
-      <div style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
+      {/*  <div style={{ display: "flex", gap: "1em", justifyContent: "center" }}>
         <CallBack1 />
         <CallBack2 />
-      </div>
+      </div> */}
 
       {/* useReducer */}
-      <Users />
+      {/* <Users /> */}
+
+      {/* useContext */}
+      <Context />
 
       {/*  <Posts /> */}
       {cloneElement(<PostModal ref={ref} />)}
